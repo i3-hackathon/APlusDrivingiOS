@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>ED527E73-D862-4E37-8856-E886A2AB8020</string>
+	<key>IDESourceControlProjectName</key>
+	<string>APlusDriving</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EABEE134934C53757274C9E957537C07F89549F0</key>
+		<string>https://github.com/vyash8/APlusDrivingiOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>APlusDriving.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EABEE134934C53757274C9E957537C07F89549F0</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vyash8/APlusDrivingiOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EABEE134934C53757274C9E957537C07F89549F0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EABEE134934C53757274C9E957537C07F89549F0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>APlusDrivingiOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
