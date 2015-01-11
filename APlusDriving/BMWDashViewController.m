@@ -7,12 +7,19 @@
 //
 
 #import "BMWDashViewController.h"
+#import "Car.h"
 #import <SHPieChartView/SHPieChartView.h>
 #import <AFNetworking/AFNetworking.h>
 
 @interface BMWDashViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *odometerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UIView *odoTempView;
+@property (weak, nonatomic) IBOutlet UIView *carStatusView;
+@property (weak, nonatomic) IBOutlet UILabel *engineLabel;
+@property (weak, nonatomic) IBOutlet UILabel *doorsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lightsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windowsLabel;
 
 @end
 
@@ -20,9 +27,55 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self drawCircleForFuel:1];
-    [self drawCircleForBattery:1];
+    [self configuration];
+    [self dashQuery];
+
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)configuration
+{
+    self.odoTempView.layer.borderColor = [UIColor colorWithRed:183.0f/255.0f green:180.0f/255.0f blue:184.0f/255.0f alpha:1].CGColor;
+    self.odoTempView.layer.borderWidth = 1.0f;
+}
+
+-(void)configureLabelsWithCar:(Car *)car
+{
+    float fuelLevel = [car.fuelLevel floatValue]/100.0f;
+    float batteryLevel = [car.battery floatValue]/100.0f;
+    
+    [self drawCircleForFuel:fuelLevel];
+    [self drawCircleForBattery:batteryLevel];
+    
+    self.odometerLabel.text = [NSString stringWithFormat:@"%@ mi",[car.odometer description]];
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%@%@", car.temperature, @"\u00B0"];
+    
+    self.odometerLabel.textColor = [UIColor colorWithRed:95.0f/255.0f green:164.0f/255.0f blue:203.0f/255.0f alpha:1];
+    self.temperatureLabel.textColor = [UIColor colorWithRed:95.0f/255.0f green:164.0f/255.0f blue:203.0f/255.0f alpha:1];
+    
+    if (car.engine) {
+        self.engineLabel.text = @"ON";
+    } else {
+        self.lightsLabel.text = @"OFF";
+    }
+    
+    if (car.lights) {
+        self.lightsLabel.text = @"ON";
+    } else {
+        self.lightsLabel.text = @"OFF";
+    }
+    
+    if (car.doors) {
+        self.doorsLabel.text = @"LOCKED";
+    } else {
+        self.doorsLabel.text = @"UNLOCKED";
+    }
+    
+    if (car.windows) {
+        self.windowsLabel.text = @"OPEN";
+    } else {
+        self.windowsLabel.text = @"CLOSED";
+    }
 }
 
 -(void)drawCircleForFuel:(CGFloat)percentage
@@ -41,9 +94,15 @@
     
     UILabel * fuelLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 120, 75, 75)];
     fuelLabel.textColor = [UIColor colorWithRed:111.0f/255.0f green:193.0f/255.0f blue:105.0f/255.0f alpha:1];
-    fuelLabel.font = [UIFont fontWithName:@"Menlo" size:40.0f];
-    fuelLabel.text = @"50%";
+    fuelLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:36.0f];
+    int labelDisplay = percentage * 100;
+    fuelLabel.text = [NSString stringWithFormat:@"%i%%", labelDisplay];
     [self.view addSubview:fuelLabel];
+    
+    UILabel * fuelDisplay = [[UILabel alloc] initWithFrame:CGRectMake(70, 180, 80, 20)];
+    fuelDisplay.text = @"Fuel Level";
+    fuelDisplay.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0f];
+    [self.view addSubview:fuelDisplay];
 
 }
 
@@ -62,14 +121,29 @@
     
     UILabel * batteryLabel = [[UILabel alloc] initWithFrame:CGRectMake(250, 120, 75, 75)];
     batteryLabel.textColor = [UIColor colorWithRed:248.0f/255.0f green:173.0f/255.0f blue:26.0f/255.0f alpha:1];
-    batteryLabel.font = [UIFont fontWithName:@"Menlo" size:40.0f];
-    batteryLabel.text = @"50%";
+    batteryLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:36.0f];
+    int labelDisplay = percentage * 100;
+    batteryLabel.text = [NSString stringWithFormat:@"%i%%", labelDisplay];
     [self.view addSubview:batteryLabel];
+    
+    UILabel * batteryDisplay = [[UILabel alloc] initWithFrame:CGRectMake(250, 180, 80, 20)];
+    batteryDisplay.text = @"Battery Level";
+    batteryDisplay.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0f];
+    [self.view addSubview:batteryDisplay];
 }
 
 -(void)dashQuery
 {
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
+    
+    NSString * path = @"http://aplusdriver.herokuapp.com/vehicles/WBY1Z4C58EV273611";
+    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"what is the responseObject here %@", responseObject);
+        Car * car = [Car parseDictionaryIntoCar:responseObject];
+        [self configureLabelsWithCar:car];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"what is the error here %@", error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

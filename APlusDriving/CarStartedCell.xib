@@ -14,20 +14,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddi-4h-vld">
-                        <rect key="frame" x="25" y="14" width="42" height="60"/>
+                        <rect key="frame" x="25" y="7" width="42" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-it-7PL">
-                        <rect key="frame" x="97" y="12" width="200" height="25"/>
+                        <rect key="frame" x="97" y="24" width="200" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoW-oh-pIs">
-                        <rect key="frame" x="97" y="38" width="200" height="25"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -35,7 +29,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="Ddi-4h-vld" id="2zK-C3-SkQ"/>
-                <outlet property="statusLabel" destination="BoW-oh-pIs" id="Vvj-WO-gS0"/>
                 <outlet property="turnedOnLabel" destination="AmR-it-7PL" id="7W9-w4-ahi"/>
             </connections>
             <point key="canvasLocation" x="312" y="416"/>

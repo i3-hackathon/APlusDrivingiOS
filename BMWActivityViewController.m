@@ -29,6 +29,8 @@
     [super viewDidLoad];
     [self configuration];
     
+    // [UIFont fontWithName:@"HelveticaNeue-Light" size:32.0f];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -66,8 +68,7 @@
         }
         
         cell.dateLabel.text = event.date;
-        cell.turnedOnLabel.text = @"BMW i3 is turned on";
-        cell.statusLabel.text = [NSString stringWithFormat:@"Battery is at %@. Fuel is at %@", event.charge, event.fuel];
+        cell.turnedOnLabel.text = @"BMW i3 is turned ON";
         
         return cell;
 

@@ -14,7 +14,9 @@
     // Initialization code
     self.dateLabel.numberOfLines = 0;
     self.dateLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.dateLabel.font = [UIFont fontWithName:@"Open-Sans" size:10.0];
+    self.dateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0];
+    
+    self.turnedOnLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f];
 
 }
 

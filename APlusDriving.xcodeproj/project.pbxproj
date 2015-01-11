@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20F906A037B05E26E0FFFA5D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E3C2BC067BD52837FD52F6 /* libPods.a */; };
 		A60EA6E71A62E81900829787 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60EA6E61A62E81900829787 /* MapKit.framework */; };
+		A60EA6EA1A62EF3300829787 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EA6E91A62EF3300829787 /* Car.m */; };
 		A6935D291A61E56A00FD9E8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6935D281A61E56A00FD9E8B /* main.m */; };
 		A6935D2C1A61E56A00FD9E8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6935D2B1A61E56A00FD9E8B /* AppDelegate.m */; };
 		A6935D341A61E56A00FD9E8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6935D331A61E56A00FD9E8B /* Images.xcassets */; };
@@ -43,6 +44,8 @@
 		7228696781AAB4D26C7437A7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A13A06EC1B7C5EFD632D1779 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A60EA6E61A62E81900829787 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A60EA6E81A62EF3300829787 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		A60EA6E91A62EF3300829787 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		A6935D231A61E56A00FD9E8B /* APlusDriving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APlusDriving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6935D271A61E56A00FD9E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6935D281A61E56A00FD9E8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 			children = (
 				A6935D651A61EA1500FD9E8B /* Event.h */,
 				A6935D661A61EA1500FD9E8B /* Event.m */,
+				A60EA6E81A62EF3300829787 /* Car.h */,
+				A60EA6E91A62EF3300829787 /* Car.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A60EA6EA1A62EF3300829787 /* Car.m in Sources */,
 				A6935D541A61E95F00FD9E8B /* CarStartedCell.m in Sources */,
 				A6935D591A61E97300FD9E8B /* CarStoppedCell.m in Sources */,
 				A6C675CF1A6227B000D87AC5 /* BMWDashViewController.m in Sources */,
