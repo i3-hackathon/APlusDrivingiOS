@@ -28,6 +28,9 @@
 		A6935D671A61EA1500FD9E8B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A6935D661A61EA1500FD9E8B /* Event.m */; };
 		A6C675CF1A6227B000D87AC5 /* BMWDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C675CD1A6227B000D87AC5 /* BMWDashViewController.m */; };
 		A6C675D01A6227B000D87AC5 /* BMWDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C675CE1A6227B000D87AC5 /* BMWDashViewController.xib */; };
+		CB07C1391A630B1F003C12D8 /* BMWUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB07C1371A630B1F003C12D8 /* BMWUsersViewController.m */; };
+		CB07C13A1A630B1F003C12D8 /* BMWUsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB07C1381A630B1F003C12D8 /* BMWUsersViewController.xib */; };
+		CB07C13D1A630BA0003C12D8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CB07C13C1A630BA0003C12D8 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,11 @@
 		A6C675CD1A6227B000D87AC5 /* BMWDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWDashViewController.m; sourceTree = "<group>"; };
 		A6C675CE1A6227B000D87AC5 /* BMWDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMWDashViewController.xib; sourceTree = "<group>"; };
 		C3E3C2BC067BD52837FD52F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB07C1361A630B1F003C12D8 /* BMWUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWUsersViewController.h; sourceTree = "<group>"; };
+		CB07C1371A630B1F003C12D8 /* BMWUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWUsersViewController.m; sourceTree = "<group>"; };
+		CB07C1381A630B1F003C12D8 /* BMWUsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMWUsersViewController.xib; sourceTree = "<group>"; };
+		CB07C13B1A630BA0003C12D8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		CB07C13C1A630BA0003C12D8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				A6935D4C1A61E66000FD9E8B /* BMWActivityViewController.h */,
+				CB07C1361A630B1F003C12D8 /* BMWUsersViewController.h */,
+				CB07C1371A630B1F003C12D8 /* BMWUsersViewController.m */,
+				CB07C1381A630B1F003C12D8 /* BMWUsersViewController.xib */,
 				A6935D4D1A61E66000FD9E8B /* BMWActivityViewController.m */,
 				A6935D4E1A61E66000FD9E8B /* BMWActivityViewController.xib */,
 				A6C675CC1A6227B000D87AC5 /* BMWDashViewController.h */,
@@ -197,8 +208,10 @@
 			children = (
 				A6935D651A61EA1500FD9E8B /* Event.h */,
 				A6935D661A61EA1500FD9E8B /* Event.m */,
-				A60EA6E81A62EF3300829787 /* Car.h */,
 				A60EA6E91A62EF3300829787 /* Car.m */,
+				A60EA6E81A62EF3300829787 /* Car.h */,
+				CB07C13B1A630BA0003C12D8 /* User.h */,
+				CB07C13C1A630BA0003C12D8 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -305,6 +318,7 @@
 			files = (
 				A6935D5F1A61E98E00FD9E8B /* CarBatteryCell.xib in Resources */,
 				A6935D551A61E95F00FD9E8B /* CarStartedCell.xib in Resources */,
+				CB07C13A1A630B1F003C12D8 /* BMWUsersViewController.xib in Resources */,
 				A6935D5A1A61E97300FD9E8B /* CarStoppedCell.xib in Resources */,
 				A6935D641A61E9A800FD9E8B /* CarSpeedingCell.xib in Resources */,
 				A6935D371A61E56A00FD9E8B /* LaunchScreen.xib in Resources */,
@@ -367,7 +381,9 @@
 				A6C675CF1A6227B000D87AC5 /* BMWDashViewController.m in Sources */,
 				A6935D4F1A61E66000FD9E8B /* BMWActivityViewController.m in Sources */,
 				A6935D2C1A61E56A00FD9E8B /* AppDelegate.m in Sources */,
+				CB07C1391A630B1F003C12D8 /* BMWUsersViewController.m in Sources */,
 				A6935D671A61EA1500FD9E8B /* Event.m in Sources */,
+				CB07C13D1A630BA0003C12D8 /* User.m in Sources */,
 				A6935D5E1A61E98E00FD9E8B /* CarBatteryCell.m in Sources */,
 				A6935D631A61E9A800FD9E8B /* CarSpeedingCell.m in Sources */,
 				A6935D291A61E56A00FD9E8B /* main.m in Sources */,
@@ -486,6 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = APlusDriving/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -497,6 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = APlusDriving/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
