@@ -217,6 +217,10 @@
     [self presentViewController:statsVC animated:NO completion:nil];
 }
 
+- (IBAction)leaderboard:(id)sender {
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

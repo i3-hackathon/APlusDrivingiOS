@@ -7,6 +7,7 @@
 //
 
 #import "BMWDashViewController.h"
+#import "BMWActivityViewController.h"
 #import "Car.h"
 #import <SHPieChartView/SHPieChartView.h>
 #import <AFNetworking/AFNetworking.h>
@@ -179,6 +180,15 @@
     }];
 }
 
+- (IBAction)eventActivity:(id)sender {
+    
+    BMWActivityViewController * bmwavc = [[BMWActivityViewController alloc] init];
+    [self presentViewController:bmwavc animated:NO completion:nil];
+}
+
+
+- (IBAction)leaderboard:(id)sender {
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
