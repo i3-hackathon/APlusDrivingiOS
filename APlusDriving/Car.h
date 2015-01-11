@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSNumber * battery;
 @property (strong, nonatomic) NSNumber * fuelLevel;
 @property (strong, nonatomic) NSNumber * lastLatitude;
-@property (strong, nonatomic) NSNumber * lastLongitute;
+@property (strong, nonatomic) NSNumber * lastLongitude;
 @property BOOL engine;
 @property BOOL lights;
 @property BOOL doors;

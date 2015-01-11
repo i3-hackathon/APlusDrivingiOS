@@ -10,16 +10,20 @@
 #import "Car.h"
 #import <SHPieChartView/SHPieChartView.h>
 #import <AFNetworking/AFNetworking.h>
+#import <MapKit/MapKit.h>
 
-@interface BMWDashViewController ()
+@interface BMWDashViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *odometerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UIView *odoTempView;
 @property (weak, nonatomic) IBOutlet UIView *carStatusView;
+@property (weak, nonatomic) IBOutlet UIView *mapContainerView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *engineLabel;
 @property (weak, nonatomic) IBOutlet UILabel *doorsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lightsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *windowsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
 
@@ -35,8 +39,13 @@
 
 -(void)configuration
 {
+    self.mapView.delegate = self;
+    
     self.odoTempView.layer.borderColor = [UIColor colorWithRed:183.0f/255.0f green:180.0f/255.0f blue:184.0f/255.0f alpha:1].CGColor;
     self.odoTempView.layer.borderWidth = 1.0f;
+    
+    self.mapContainerView.layer.borderColor = [UIColor colorWithRed:183.0f/255.0f green:180.0f/255.0f blue:184.0f/255.0f alpha:1].CGColor;
+    self.mapContainerView.layer.borderWidth = 1.0f;
 }
 
 -(void)configureLabelsWithCar:(Car *)car
@@ -44,11 +53,14 @@
     float fuelLevel = [car.fuelLevel floatValue]/100.0f;
     float batteryLevel = [car.battery floatValue]/100.0f;
     
-    [self drawCircleForFuel:fuelLevel];
-    [self drawCircleForBattery:batteryLevel];
+    [UIView animateWithDuration:1 animations:^{
+        [self drawCircleForFuel:fuelLevel];
+        [self drawCircleForBattery:batteryLevel];
+    }];
+
     
     self.odometerLabel.text = [NSString stringWithFormat:@"%@ mi",[car.odometer description]];
-    self.temperatureLabel.text = [NSString stringWithFormat:@"%@%@", car.temperature, @"\u00B0"];
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%@%@F", car.temperature, @"\u00B0"];
     
     self.odometerLabel.textColor = [UIColor colorWithRed:95.0f/255.0f green:164.0f/255.0f blue:203.0f/255.0f alpha:1];
     self.temperatureLabel.textColor = [UIColor colorWithRed:95.0f/255.0f green:164.0f/255.0f blue:203.0f/255.0f alpha:1];
@@ -76,6 +88,27 @@
     } else {
         self.windowsLabel.text = @"CLOSED";
     }
+    
+    double lat = [car.lastLatitude doubleValue];
+    double lng = [car.lastLongitude doubleValue];
+    
+    CLLocation * lastLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+    [self.mapView addAnnotation:lastLocation];
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (lastLocation.coordinate, 100, 100);
+    [self.mapView setRegion:region animated:NO];
+    
+    CLGeocoder * geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:lastLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"what is this here %@", placemarks);
+        CLPlacemark * placemark = [placemarks firstObject];
+        NSString * street = placemark.addressDictionary[@"Street"];
+        NSString * city = placemark.addressDictionary[@"City"];
+        NSString * state = placemark.addressDictionary[@"State"];
+        NSString * zipCode = placemark.addressDictionary[@"ZIP"];
+        
+        self.locationLabel.text = [NSString stringWithFormat:@"%@, %@, %@ %@", street, city, state, zipCode];
+    }];
 }
 
 -(void)drawCircleForFuel:(CGFloat)percentage
@@ -145,6 +178,7 @@
         NSLog(@"what is the error here %@", error);
     }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

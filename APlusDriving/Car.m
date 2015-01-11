@@ -17,7 +17,7 @@
     car.battery = carDict[@"LastBatteryLevel"];
     car.fuelLevel = carDict[@"FuelLevel"];
     car.lastLatitude = carDict[@"LastLocation"][@"Lat"];
-    car.lastLongitute = carDict[@"LastLocation"][@"Lng"];
+    car.lastLongitude = carDict[@"LastLocation"][@"Lng"];
     car.engine = carDict[@"IgnitionOn"];
     car.lights = carDict[@"LightsOn"];
     car.doors = carDict[@"doors_locked"];

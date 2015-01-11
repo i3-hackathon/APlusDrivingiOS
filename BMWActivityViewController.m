@@ -42,7 +42,17 @@
     self.carEvents = [[NSMutableArray alloc] init];
     self.activityTableView.delegate = self;
     self.activityTableView.dataSource = self;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.activityTableView addSubview:refreshControl];
     [self eventQuery];
+}
+
+-(void)refresh:(UIRefreshControl *)refreshControl
+{
+    [self eventQuery];
+    [refreshControl endRefreshing];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,6 +97,24 @@
             cell.layer.borderWidth = 1.0f;
         }
         
+        cell.dateLabel.text = event.date;
+        cell.turnedOffLabel.text = @"BMW i3 is turned OFF";
+        cell.tripTimeLabel.text = @"Total Trip Time: 17 minutes";
+        cell.distanceTravaledLabel.text = @"Total Distance traveled: 5 miles";
+        
+        float latF = [event.latitude floatValue];
+        float lngF = [event.longitude floatValue];
+        
+        NSNumber * latNum = [NSNumber numberWithFloat:latF];
+        NSNumber * longNum = [NSNumber numberWithFloat:lngF];
+        double lat = [latNum doubleValue];
+        double lng = [longNum doubleValue];
+        
+        CLLocation * lastLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+        [cell.mapView addAnnotation:lastLocation];
+        
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (lastLocation.coordinate, 100, 100);
+        [cell.mapView setRegion:region animated:NO];
         
         return cell;
 

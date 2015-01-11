@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface CarStoppedCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *turnedOffLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tripTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceTravaledLabel;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property CGFloat lat;
+@property CGFloat lng;
 
 @end

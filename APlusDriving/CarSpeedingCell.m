@@ -14,7 +14,12 @@
     // Initialization code
     self.dateLabel.numberOfLines = 0;
     self.dateLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.dateLabel.font = [UIFont fontWithName:@"Open-Sans" size:10.0];
+    self.dateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0];
+    
+    self.detectedLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+    self.speedUpdateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+    self.speedUpdateLabel.numberOfLines = 0;
+    self.speedUpdateLabel.lineBreakMode = NSLineBreakByWordWrapping;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

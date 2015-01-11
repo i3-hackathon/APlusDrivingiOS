@@ -10,9 +10,17 @@
 
 @implementation CarStoppedCell
 
+
 - (void)awakeFromNib {
     // Initialization code
     
+    self.dateLabel.numberOfLines = 0;
+    self.dateLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.dateLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0];
+    
+    self.turnedOffLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+    self.tripTimeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
+    self.distanceTravaledLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
     
 }
 

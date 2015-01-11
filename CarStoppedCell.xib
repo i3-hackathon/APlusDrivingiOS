@@ -45,6 +45,7 @@
             <connections>
                 <outlet property="dateLabel" destination="dm3-s4-Ixt" id="dhT-P3-qnZ"/>
                 <outlet property="distanceTravaledLabel" destination="Je5-mW-UNU" id="eQU-a9-9Tz"/>
+                <outlet property="mapView" destination="gCz-Xe-27C" id="lMn-2O-Ibf"/>
                 <outlet property="tripTimeLabel" destination="l2g-iI-B55" id="B6C-5s-glK"/>
                 <outlet property="turnedOffLabel" destination="5Qp-ys-IEF" id="jGv-M5-MCY"/>
             </connections>

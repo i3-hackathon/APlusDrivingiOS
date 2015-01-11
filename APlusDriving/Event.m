@@ -22,7 +22,7 @@
         event.odomoter = eventDict[@"odometer"];
         event.temperature = eventDict[@"temp_inside"];
         event.fuel = eventDict[@"fuel"];
-        event.date = eventDict[@"created_at"];
+        event.date = eventDict[@"formatted_time"];
         if ([eventDict[@"charge"] isEqual:[NSNull class]]) {
             event.charge = @"";
         } else {
