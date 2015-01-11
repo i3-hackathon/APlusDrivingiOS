@@ -135,7 +135,7 @@
         }
         
         cell.dateLabel.text = event.date;
-        cell.batteryNotificationLabel.text = [NSString stringWithFormat:@"Charge is low at %@, nearest charging station is...", event.charge];
+        cell.batteryNotificationLabel.text = [NSString stringWithFormat:@"Charge is low at %@", event.charge];
         
         return cell;
         

@@ -23,8 +23,8 @@
         event.temperature = eventDict[@"temp_inside"];
         event.fuel = eventDict[@"fuel"];
         event.date = eventDict[@"formatted_time"];
-        if ([eventDict[@"charge"] isEqual:[NSNull class]]) {
-            event.charge = @"";
+        if ([eventDict[@"charge"] isEqual:[NSNull null]]) {
+            event.charge = @"20%";
         } else {
             event.charge = eventDict[@"charge"];
         }

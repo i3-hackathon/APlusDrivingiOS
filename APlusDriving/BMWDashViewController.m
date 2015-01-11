@@ -177,7 +177,9 @@
         Car * car = [Car parseDictionaryIntoCar:responseObject];
         [self configureLabelsWithCar:car];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"what is the error here %@", error);
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:[error localizedDescription] delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Ok", nil];
+        
+        [alertView show];
     }];
 }
 
