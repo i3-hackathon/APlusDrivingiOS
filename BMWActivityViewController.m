@@ -49,6 +49,9 @@
             cell = (CarStartedCell *)[nib objectAtIndex:0];
         }
         
+        return cell;
+
+        
     } else if ([event.eventType isEqualToString:@"stopped"]) {
         
         CarStoppedCell * cell = [self.activityTableView dequeueReusableCellWithIdentifier:@"carStopped"];
@@ -58,6 +61,9 @@
             cell = (CarStoppedCell *)[nib objectAtIndex:0];
         }
         
+        return cell;
+
+        
     } else if ([event.eventType isEqualToString:@"battery"]) {
         
         CarBatteryCell * cell = [self.activityTableView dequeueReusableCellWithIdentifier:@"carBattery"];
@@ -66,6 +72,8 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarBatteryCell" owner:nil options:nil];
             cell = (CarBatteryCell *)[nib objectAtIndex:0];
         }
+                
+        return cell;
         
     } else if ([event.eventType isEqualToString:@"speeding"]) {
         
@@ -75,6 +83,9 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarSpeedingCell" owner:nil options:nil];
             cell = (CarSpeedingCell *)[nib objectAtIndex:0];
         }
+        
+        return cell;
+
     } else {
         
         return nil;
@@ -98,7 +109,7 @@
     
     [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.carEvents = [Event serializeEventsWithArray:responseObject];
-        [self.activityTableView reloadData];
+//        [self.activityTableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:[error localizedDescription] delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Ok", nil];
         

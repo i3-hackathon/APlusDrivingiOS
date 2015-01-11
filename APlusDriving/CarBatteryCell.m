@@ -11,6 +11,7 @@
 @implementation CarBatteryCell
 
 - (void)awakeFromNib {
+    
     // Initialization code
 }
 
