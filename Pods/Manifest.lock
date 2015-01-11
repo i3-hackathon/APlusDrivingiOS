@@ -20,11 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - MagicPie (1.0.1)
+  - SHPieChartView (1.0.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - MagicPie
+  - SHPieChartView
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  MagicPie: 221e8a2c292a60680be523b26b051cb150327619
+  SHPieChartView: d67b20eddc8ef517e012cd62539191fec407fbf9
 
 COCOAPODS: 0.35.0

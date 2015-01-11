@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MagicPie.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SHPieChartView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>55B690AA142B964551EC4FB2</key>
+		<key>438E88BDAE9533ED721DE781</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8A694E27A54A6360AE511B7</key>
+		<key>6BD6A2047D17806E383A331E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C230D7A1A90C3670ACBFA62B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C784B528E25A34E39F855B52</key>
 		<dict>
 			<key>primary</key>
 			<true/>

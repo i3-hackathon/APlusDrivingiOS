@@ -10,4 +10,25 @@
 
 @implementation Event
 
++(NSMutableArray *)serializeEventsWithArray:(NSArray *)events
+{
+    NSMutableArray * array = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary * eventDict in events) {
+        Event * event = [[Event alloc] init];
+        event.eventType = eventDict[@"event_type"];
+        event.latitude = eventDict[@"lat"];
+        event.longitude = eventDict[@"long"];
+        event.odomoter = eventDict[@"odometer"];
+        if ([eventDict[@"charge"] isEqual:[NSNull class]]) {
+            event.charge = @"";
+        } else {
+            event.charge = eventDict[@"charge"];
+        }
+        [array addObject:event];
+    }
+    
+    return array;
+}
+
 @end

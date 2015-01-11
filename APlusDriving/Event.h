@@ -11,7 +11,11 @@
 @interface Event : NSObject
 
 @property (strong, nonatomic) NSString * eventType;
-@property (strong, nonatomic) NSString * lattitude;
+@property (strong, nonatomic) NSString * latitude;
 @property (strong, nonatomic) NSString * longitude;
+@property (strong, nonatomic) NSString * odomoter;
+@property (strong, nonatomic) NSString * charge;
+
++(NSMutableArray *)serializeEventsWithArray:(NSArray *)events;
 
 @end

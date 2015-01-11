@@ -7,6 +7,7 @@
 //
 
 #import "BMWActivityViewController.h"
+#import "BMWDashViewController.h"
 #import "CarStartedCell.h"
 #import "CarStoppedCell.h"
 #import "CarBatteryCell.h"
@@ -14,7 +15,8 @@
 #import "Event.h"
 #import <AFNetworking.h>
 
-@interface BMWActivityViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface BMWActivityViewController () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *activityTableView;
 @property (strong, nonatomic) NSMutableArray * carEvents;
 
@@ -31,6 +33,7 @@
 -(void)configuration
 {
     self.carEvents = [[NSMutableArray alloc] init];
+    [self eventQuery];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,16 +89,36 @@
     return self.carEvents.count;
 }
 
+
 -(void)eventQuery
 {
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
     
-    [manager GET:@"something" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"what is the responseObject here %@", responseObject);
+    NSString * path = [NSString stringWithFormat:@"https://aplusdriver.herokuapp.com/vehicles/WBY1Z4C58EV273611/events"];
+    
+    [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.carEvents = [Event serializeEventsWithArray:responseObject];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"what is the error here %@", error);
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:[error localizedDescription] delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Ok", nil];
+        
+        [alertView show];
     }];
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self eventQuery];
+    }
+}
+
+- (IBAction)dashView:(id)sender {
+    
+    BMWDashViewController * statsVC = [[BMWDashViewController alloc] init];
+    [self presentViewController:statsVC animated:NO completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

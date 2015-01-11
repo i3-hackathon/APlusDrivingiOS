@@ -24,6 +24,8 @@
 		A6935D631A61E9A800FD9E8B /* CarSpeedingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6935D611A61E9A800FD9E8B /* CarSpeedingCell.m */; };
 		A6935D641A61E9A800FD9E8B /* CarSpeedingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6935D621A61E9A800FD9E8B /* CarSpeedingCell.xib */; };
 		A6935D671A61EA1500FD9E8B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A6935D661A61EA1500FD9E8B /* Event.m */; };
+		A6C675CF1A6227B000D87AC5 /* BMWDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C675CD1A6227B000D87AC5 /* BMWDashViewController.m */; };
+		A6C675D01A6227B000D87AC5 /* BMWDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C675CE1A6227B000D87AC5 /* BMWDashViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,9 @@
 		A6935D621A61E9A800FD9E8B /* CarSpeedingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarSpeedingCell.xib; sourceTree = "<group>"; };
 		A6935D651A61EA1500FD9E8B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		A6935D661A61EA1500FD9E8B /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		A6C675CC1A6227B000D87AC5 /* BMWDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWDashViewController.h; sourceTree = "<group>"; };
+		A6C675CD1A6227B000D87AC5 /* BMWDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWDashViewController.m; sourceTree = "<group>"; };
+		A6C675CE1A6227B000D87AC5 /* BMWDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BMWDashViewController.xib; sourceTree = "<group>"; };
 		C3E3C2BC067BD52837FD52F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +160,9 @@
 				A6935D4C1A61E66000FD9E8B /* BMWActivityViewController.h */,
 				A6935D4D1A61E66000FD9E8B /* BMWActivityViewController.m */,
 				A6935D4E1A61E66000FD9E8B /* BMWActivityViewController.xib */,
+				A6C675CC1A6227B000D87AC5 /* BMWDashViewController.h */,
+				A6C675CD1A6227B000D87AC5 /* BMWDashViewController.m */,
+				A6C675CE1A6227B000D87AC5 /* BMWDashViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 				A6935D371A61E56A00FD9E8B /* LaunchScreen.xib in Resources */,
 				A6935D341A61E56A00FD9E8B /* Images.xcassets in Resources */,
 				A6935D501A61E66000FD9E8B /* BMWActivityViewController.xib in Resources */,
+				A6C675D01A6227B000D87AC5 /* BMWDashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +354,7 @@
 			files = (
 				A6935D541A61E95F00FD9E8B /* CarStartedCell.m in Sources */,
 				A6935D591A61E97300FD9E8B /* CarStoppedCell.m in Sources */,
+				A6C675CF1A6227B000D87AC5 /* BMWDashViewController.m in Sources */,
 				A6935D4F1A61E66000FD9E8B /* BMWActivityViewController.m in Sources */,
 				A6935D2C1A61E56A00FD9E8B /* AppDelegate.m in Sources */,
 				A6935D671A61EA1500FD9E8B /* Event.m in Sources */,
