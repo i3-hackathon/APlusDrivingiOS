@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CarStoppedCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *turnedOffLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tripTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceTravaledLabel;
 
 @end

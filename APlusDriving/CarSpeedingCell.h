@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CarSpeedingCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detectedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *speedUpdateLabel;
 
 @end

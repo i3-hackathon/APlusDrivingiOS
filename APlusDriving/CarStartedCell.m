@@ -12,6 +12,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.dateLabel.numberOfLines = 0;
+    self.dateLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.dateLabel.font = [UIFont fontWithName:@"Open-Sans" size:10.0];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

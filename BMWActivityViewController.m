@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *activityTableView;
 @property (strong, nonatomic) NSMutableArray * carEvents;
+@property (strong, nonatomic) UITableView * someTableView;
 
 @end
 
@@ -27,12 +28,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configuration];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)configuration
 {
+    CGRect frame = CGRectMake(0, 50, 320, 458);
+    self.someTableView = [[UITableView alloc] initWithFrame:frame];
+//    [self.view addSubview:self.someTableView];
     self.carEvents = [[NSMutableArray alloc] init];
+    self.activityTableView.delegate = self;
+    self.activityTableView.dataSource = self;
     [self eventQuery];
 }
 
@@ -40,7 +47,11 @@
 {
     Event * event = [self.carEvents objectAtIndex:indexPath.row];
     
-    if ([event.eventType isEqualToString:@"started"]) {
+    if (indexPath.row % 2 == 1) {
+        event.odd = YES;
+    }
+    
+    if ([event.eventType isEqualToString:@"carOn"]) {
         
         CarStartedCell * cell = [self.activityTableView dequeueReusableCellWithIdentifier:@"carStarted"];
         
@@ -49,10 +60,19 @@
             cell = (CarStartedCell *)[nib objectAtIndex:0];
         }
         
+        if (event.odd) {
+            cell.layer.borderColor = [UIColor colorWithRed:183.0f/255.0f green:180.0f/255.0f blue:184.0f/255.0f alpha:1].CGColor;
+            cell.layer.borderWidth = 1.0f;
+        }
+        
+        cell.dateLabel.text = event.date;
+        cell.turnedOnLabel.text = @"BMW i3 is turned on";
+        cell.statusLabel.text = [NSString stringWithFormat:@"Battery is at %@. Fuel is at %@", event.charge, event.fuel];
+        
         return cell;
 
         
-    } else if ([event.eventType isEqualToString:@"stopped"]) {
+    } else if ([event.eventType isEqualToString:@"carOff"]) {
         
         CarStoppedCell * cell = [self.activityTableView dequeueReusableCellWithIdentifier:@"carStopped"];
         
@@ -61,10 +81,16 @@
             cell = (CarStoppedCell *)[nib objectAtIndex:0];
         }
         
+        if (event.odd) {
+            cell.layer.borderColor = [UIColor colorWithRed:183.0f/255.0f green:180.0f/255.0f blue:184.0f/255.0f alpha:1].CGColor;
+            cell.layer.borderWidth = 1.0f;
+        }
+        
+        
         return cell;
 
         
-    } else if ([event.eventType isEqualToString:@"battery"]) {
+    } else if ([event.eventType isEqualToString:@"BatteryCharging"]) {
         
         CarBatteryCell * cell = [self.activityTableView dequeueReusableCellWithIdentifier:@"carBattery"];
         
@@ -72,10 +98,18 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarBatteryCell" owner:nil options:nil];
             cell = (CarBatteryCell *)[nib objectAtIndex:0];
         }
-                
+        
+        if (event.odd) {
+            cell.layer.borderColor = [UIColor colorWithRed:183.0f/255.0f green:180.0f/255.0f blue:184.0f/255.0f alpha:1].CGColor;
+            cell.layer.borderWidth = 1.0f;
+        }
+        
+        cell.dateLabel.text = event.date;
+        cell.batteryNotificationLabel.text = [NSString stringWithFormat:@"Charge is low at %@, nearest charging station is...", event.charge];
+        
         return cell;
         
-    } else if ([event.eventType isEqualToString:@"speeding"]) {
+    } else if ([event.eventType isEqualToString:@"ExperienceControl"]) {
         
         CarSpeedingCell * cell = [self.activityTableView dequeueReusableCellWithIdentifier:@"carSpeeding"];
         
@@ -83,6 +117,15 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CarSpeedingCell" owner:nil options:nil];
             cell = (CarSpeedingCell *)[nib objectAtIndex:0];
         }
+        
+        if (event.odd) {
+            cell.layer.borderColor = [UIColor colorWithRed:183.0f/255.0f green:180.0f/255.0f blue:184.0f/255.0f alpha:1].CGColor;
+            cell.layer.borderWidth = 1.0f;
+        }
+        
+        cell.dateLabel.text = event.date;
+        cell.detectedLabel.text = @"Speed Limit Detected";
+        cell.speedUpdateLabel.text = [NSString stringWithFormat:@"Driver is driving over %@ mph over the speed limit", event.limitExceededBy];
         
         return cell;
 
@@ -100,16 +143,31 @@
     return self.carEvents.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Event * event = [self.carEvents objectAtIndex:indexPath.row];
+    
+    if ([event.eventType isEqualToString:@"carOn"] || [event.eventType isEqualToString:@"ExperienceControl"]) {
+        return 90.0f;
+    } else if ([event.eventType isEqualToString:@"BatteryCharging"]) {
+        return 70.0f;
+    } else {
+        return 200.0f;
+    }
+    
+    return 0.0f;
+}
+
 
 -(void)eventQuery
 {
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
     
-    NSString * path = [NSString stringWithFormat:@"https://aplusdriver.herokuapp.com/vehicles/WBY1Z4C58EV273611/events"];
+    NSString * path = [NSString stringWithFormat:@"http://aplusdriver.herokuapp.com/vehicles/WBY1Z4C58EV273611/events"];
     
     [manager GET:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.carEvents = [Event serializeEventsWithArray:responseObject];
-//        [self.activityTableView reloadData];
+        [self.activityTableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:[error localizedDescription] delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Ok", nil];
         

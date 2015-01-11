@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CarBatteryCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *batteryNotificationLabel;
 
 @end

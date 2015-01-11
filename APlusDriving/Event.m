@@ -20,6 +20,9 @@
         event.latitude = eventDict[@"lat"];
         event.longitude = eventDict[@"long"];
         event.odomoter = eventDict[@"odometer"];
+        event.temperature = eventDict[@"temp_inside"];
+        event.fuel = eventDict[@"fuel"];
+        event.date = eventDict[@"created_at"];
         if ([eventDict[@"charge"] isEqual:[NSNull class]]) {
             event.charge = @"";
         } else {

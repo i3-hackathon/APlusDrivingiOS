@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CarStartedCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *turnedOnLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
