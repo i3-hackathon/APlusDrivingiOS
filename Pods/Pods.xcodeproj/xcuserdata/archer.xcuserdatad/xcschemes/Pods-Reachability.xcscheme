@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D88F6B2A158785AF0CC0A54"
-               BuildableName = "libPods-SHPieChartView.a"
-               BlueprintName = "Pods-SHPieChartView"
+               BlueprintIdentifier = "FD0D2F80F2E84F585D1BE5C3"
+               BuildableName = "libPods-Reachability.a"
+               BlueprintName = "Pods-Reachability"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
