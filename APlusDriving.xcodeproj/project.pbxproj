@@ -10,6 +10,8 @@
 		20F906A037B05E26E0FFFA5D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E3C2BC067BD52837FD52F6 /* libPods.a */; };
 		A60EA6E71A62E81900829787 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60EA6E61A62E81900829787 /* MapKit.framework */; };
 		A60EA6EA1A62EF3300829787 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EA6E91A62EF3300829787 /* Car.m */; };
+		A60EA6EE1A63259500829787 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EA6EC1A63259500829787 /* UserCell.m */; };
+		A60EA6EF1A63259500829787 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60EA6ED1A63259500829787 /* UserCell.xib */; };
 		A6935D291A61E56A00FD9E8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6935D281A61E56A00FD9E8B /* main.m */; };
 		A6935D2C1A61E56A00FD9E8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6935D2B1A61E56A00FD9E8B /* AppDelegate.m */; };
 		A6935D341A61E56A00FD9E8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6935D331A61E56A00FD9E8B /* Images.xcassets */; };
@@ -49,6 +51,9 @@
 		A60EA6E61A62E81900829787 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A60EA6E81A62EF3300829787 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
 		A60EA6E91A62EF3300829787 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		A60EA6EB1A63259500829787 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		A60EA6EC1A63259500829787 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		A60EA6ED1A63259500829787 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		A6935D231A61E56A00FD9E8B /* APlusDriving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APlusDriving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6935D271A61E56A00FD9E8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6935D281A61E56A00FD9E8B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,14 +177,14 @@
 			isa = PBXGroup;
 			children = (
 				A6935D4C1A61E66000FD9E8B /* BMWActivityViewController.h */,
-				CB07C1361A630B1F003C12D8 /* BMWUsersViewController.h */,
-				CB07C1371A630B1F003C12D8 /* BMWUsersViewController.m */,
-				CB07C1381A630B1F003C12D8 /* BMWUsersViewController.xib */,
 				A6935D4D1A61E66000FD9E8B /* BMWActivityViewController.m */,
 				A6935D4E1A61E66000FD9E8B /* BMWActivityViewController.xib */,
 				A6C675CC1A6227B000D87AC5 /* BMWDashViewController.h */,
 				A6C675CD1A6227B000D87AC5 /* BMWDashViewController.m */,
 				A6C675CE1A6227B000D87AC5 /* BMWDashViewController.xib */,
+				CB07C1361A630B1F003C12D8 /* BMWUsersViewController.h */,
+				CB07C1371A630B1F003C12D8 /* BMWUsersViewController.m */,
+				CB07C1381A630B1F003C12D8 /* BMWUsersViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +204,9 @@
 				A6935D601A61E9A800FD9E8B /* CarSpeedingCell.h */,
 				A6935D611A61E9A800FD9E8B /* CarSpeedingCell.m */,
 				A6935D621A61E9A800FD9E8B /* CarSpeedingCell.xib */,
+				A60EA6EB1A63259500829787 /* UserCell.h */,
+				A60EA6EC1A63259500829787 /* UserCell.m */,
+				A60EA6ED1A63259500829787 /* UserCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -320,6 +328,7 @@
 				A6935D551A61E95F00FD9E8B /* CarStartedCell.xib in Resources */,
 				CB07C13A1A630B1F003C12D8 /* BMWUsersViewController.xib in Resources */,
 				A6935D5A1A61E97300FD9E8B /* CarStoppedCell.xib in Resources */,
+				A60EA6EF1A63259500829787 /* UserCell.xib in Resources */,
 				A6935D641A61E9A800FD9E8B /* CarSpeedingCell.xib in Resources */,
 				A6935D371A61E56A00FD9E8B /* LaunchScreen.xib in Resources */,
 				A6935D341A61E56A00FD9E8B /* Images.xcassets in Resources */,
@@ -387,6 +396,7 @@
 				A6935D5E1A61E98E00FD9E8B /* CarBatteryCell.m in Sources */,
 				A6935D631A61E9A800FD9E8B /* CarSpeedingCell.m in Sources */,
 				A6935D291A61E56A00FD9E8B /* main.m in Sources */,
+				A60EA6EE1A63259500829787 /* UserCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

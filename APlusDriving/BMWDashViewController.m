@@ -8,6 +8,7 @@
 
 #import "BMWDashViewController.h"
 #import "BMWActivityViewController.h"
+#import "BMWUsersViewController.h"
 #import "Car.h"
 #import <SHPieChartView/SHPieChartView.h>
 #import <AFNetworking/AFNetworking.h>
@@ -188,6 +189,9 @@
 
 
 - (IBAction)leaderboard:(id)sender {
+    
+    BMWUsersViewController * uvc = [[BMWUsersViewController alloc] init];
+    [self presentViewController:uvc animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

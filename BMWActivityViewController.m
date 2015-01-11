@@ -8,6 +8,7 @@
 
 #import "BMWActivityViewController.h"
 #import "BMWDashViewController.h"
+#import "BMWUsersViewController.h"
 #import "CarStartedCell.h"
 #import "CarStoppedCell.h"
 #import "CarBatteryCell.h"
@@ -219,6 +220,8 @@
 
 - (IBAction)leaderboard:(id)sender {
     
+    BMWUsersViewController * uvc = [[BMWUsersViewController alloc] init];
+    [self presentViewController:uvc animated:NO completion:nil];
 }
 
 
